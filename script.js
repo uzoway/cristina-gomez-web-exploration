@@ -13,14 +13,14 @@ function initAnimation() {
     const offsetState = Flip.getState(".images__item.offset__image");
 
     gsap.to(".images__item", {
-        "--y-percent": "105%",
+        "--y-percent": "110%",
         ease: "ease-out-quad",
         duration: 1.12,
         stagger: {
             each: 0.065,
             from: "edges"
         },
-        delay: 0.7,
+        delay: 1,
         onComplete: () => {
             gsap.set(".images__item:nth-last-child(8)", { 
                 scale: 2.9, 
