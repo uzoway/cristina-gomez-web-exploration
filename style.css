@@ -53,12 +53,6 @@ body {
     opacity: 1;
 }
 
-img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .wrapper {
     width: 100%;
     height: 100%;
@@ -191,9 +185,9 @@ img {
 
 .images .images__item {
     --y-percent: 0%;
-    aspect-ratio: 1/1.2;
+    aspect-ratio: 1/1.3;
     will-change: transform;
-    overflow: hidden;
+    position: relative;
 }
 
 .images .images__item::before {
@@ -208,7 +202,7 @@ img {
     will-change: transform;
 }
 
-.images .images__item img {
+img {
     width: 100%;
     height: 100%;
     object-fit: cover;
