@@ -32,12 +32,36 @@ function initAnimation() {
 
             const offsetImages = gsap.utils.toArray(".images__item.offset__image");
 
+            const enter = document.querySelector(".images__item:nth-last-child(8)");
+
             gsap.set(offsetImages, { "grid-column": "7/8", "grid-row": "1", x: 20 })
 
             Flip.from(state, {
                 duration: 2.6,
                 ease: "power4.in",
-                scale: true
+                scale: true,
+                onComplete: () => {
+
+                    enter.addEventListener("mouseenter", () => {
+                        let mouseXPosition;
+                        let mouseYPosition;
+
+                        window.addEventListener("mousemove", (e) => {
+                            mouseXPosition = e.clientX;
+                            mouseYPosition = e.clientY;
+
+                            gsap.set(enter, { gridArea: "auto / 1 / auto / 2" })
+
+                            gsap.to(enter, {
+                                y: -`${mouseYPosition}`,
+                                left: `${mouseXPosition}`,
+                                ease: "ease-out-quad",
+                                duration: 0.5
+                            })
+                        })
+                    }) 
+
+                }
             })
 
             Flip.from(offsetState, {
@@ -49,7 +73,7 @@ function initAnimation() {
                     each: 0.06
                 },
                 onComplete: () => {
-                    gsap.set(offsetImages, { autoAlpha: 0 })
+                    gsap.set(offsetImages, { display: "none" })
                 }
             })
             .to("#translate-y-text", { y: 0, ease: "power4.out", duration: 1.5 }, "+=0.5")
