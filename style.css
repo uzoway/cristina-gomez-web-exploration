@@ -70,6 +70,8 @@ body {
     gap: var(--gutter);    
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
+    /* position: relative; */
+    /* z-index: 3; */
 }
 
 .header .header__name {
@@ -190,9 +192,9 @@ body {
     position: relative;
 }
 
-/* .images .images__item:nth-last-child(8).center {
-    transform: translate(-50%, -50%)!important;
-} */
+.images .images__item:nth-last-child(8) {
+    will-change: transform;
+}
 
 .images .images__item::before {
     position: absolute;
