@@ -50,8 +50,8 @@ function initAnimation() {
             let mouseYPosition;
 
             window.addEventListener("mousemove", (e) => {
-                mouseXPosition = e.clientX;
-                mouseYPosition = e.clientY;
+                mouseXPosition = e.pageX;
+                mouseYPosition = e.pageY;
 
                 gsap.set(centerImage, { gridArea: "auto / 1 / auto / 2", yPercent: -400, xPercent: -100 })
 
