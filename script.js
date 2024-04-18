@@ -25,8 +25,6 @@ function initAnimation() {
             './assets/images/1 (10).webp',
             './assets/images/1 (24).webp',
             './assets/images/1 (9).webp',
-            './assets/images/1 (6).webp',
-            './assets/images/1 (1).webp',
         ];
 
         const movingTl = gsap.timeline({
@@ -34,32 +32,32 @@ function initAnimation() {
         });
 
         imagePaths.forEach((imagePath, index) => {
-            movingTl.set(movingImageItem, {
+            movingTl.to(movingImageItem, {
+                opacity: 0.95,
+                duration: 0.25,
+                ease: 'power3.in', 
+            }).set(movingImageItem, {
                 attr: { src: imagePath },
-                filter: "brightness(0.95)",
-                opacity: 0.85
-            }).to(movingImageItem, 0.4, {
-                filter: "brightness(1)",
-                ease: 'power3.out', 
-                opacity: 1
-            });
+            }, "-=0.2").to(movingImageItem, {
+                ease: 'power3.in', 
+                opacity: 1,
+                duration: 0.25
+            }, "-=0.1");
         });
         
         centerImage.addEventListener("mouseenter", () => {
-            let mouseXPosition;
+            let mouseXPosition; 
             let mouseYPosition;
 
             window.addEventListener("mousemove", (e) => {
-                mouseXPosition = e.pageX;
-                mouseYPosition = e.pageY;
-
-                gsap.set(centerImage, { gridArea: "auto / 1 / auto / 2", yPercent: -400, xPercent: -100 })
+                mouseXPosition = e.pageX - centerImage.offsetWidth * 9.5;
+                mouseYPosition = e.pageY - centerImage.offsetHeight * 3.5;
 
                 gsap.to(centerImage, {
                     top: `${mouseYPosition}`,
                     left: `${mouseXPosition}`,
-                    ease: "power2.out",
-                    duration: 0.3
+                    ease: "power4.out",
+                    duration: 1.5
                 })
 
                 movingTl.restart().play();
