@@ -1,5 +1,9 @@
 # Cristina Gomez Exploration
 
+
+https://github.com/uzoway/cristina-gomez-web-exploration/assets/73430874/e0f90a5b-edf1-492d-909f-29942e6d7395
+
+
 Development of a conceptual animation for the personal website of independent photographer Cristina Gómez designed by [Alex Tkachev](https://twitter.com/simply_aalex) [here](https://twitter.com/simply_aalex/status/1764982370078278049/video/1). 
 
 ## Table of contents
